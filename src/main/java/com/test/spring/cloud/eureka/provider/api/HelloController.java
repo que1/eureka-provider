@@ -1,4 +1,4 @@
-package com.test.spring.cloud.eureka.client.api;
+package com.test.spring.cloud.eureka.provider.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
