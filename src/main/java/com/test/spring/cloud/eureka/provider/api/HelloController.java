@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * ProjectName: com.test.spring.cloud.eureka.client.api
@@ -45,5 +46,20 @@ public class HelloController {
         return "hello world";
     }
 
+
+    @RequestMapping(value = "/hystrix", method = RequestMethod.GET)
+    public String hystrix() {
+        logger.info("...start...");
+
+        int sleepTime = new Random().nextInt(3000);
+        logger.info("...sleep: " + sleepTime + "ms...");
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            logger.error(e.getMessage(), e);
+        }
+        logger.info("...end...");
+        return "hystrix test";
+    }
 
 }
