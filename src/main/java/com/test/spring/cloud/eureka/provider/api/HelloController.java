@@ -51,7 +51,7 @@ public class HelloController {
     public String hystrix() {
         logger.info("...start...");
 
-        int sleepTime = new Random().nextInt(3000);
+        int sleepTime = new Random().nextInt(1200);
         logger.info("...sleep: " + sleepTime + "ms...");
         try {
             Thread.sleep(sleepTime);
